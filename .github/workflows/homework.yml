@@ -55,5 +55,6 @@ jobs:
           echo "Current directory: $(pwd)"
           # Print the list of changed files
           echo $(ls)
+          git rev-parse --git-dir
           
          
