@@ -47,6 +47,6 @@ jobs:
         run: |
           # Run the git diff-tree command and store the output in a variable
           CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }})
+          python3 main.py $CHANGED_FILES
           
-          # Print the list of changed files
-          echo "Changed files: $CHANGED_FILES"
+         
