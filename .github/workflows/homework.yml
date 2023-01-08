@@ -21,7 +21,11 @@ jobs:
       - name: Print commit message
         run: |
           echo ${{ github.event.head_commit.message }}
-      - name: Print list of last commited files
+      - name: Print added files
         run: |
-          echo ${{ github.event.commits.added }}
-
+          # Iterate over the list of added files
+          for file in ${{ github.event.commits.added }}
+          do
+            # Print the file path
+            echo "Added file: $file"
+          done
