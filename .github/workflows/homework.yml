@@ -49,12 +49,7 @@ jobs:
           arr=()
           for i in "$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }})"
           do
-            if [[ $i == *"path1"* ]]; then
-              arr+=("path1")
-            fi
-            if [[ $i == *"path2"* ]]; then
-              arr+=("path2")
-            fi
+            # Print the file path
+            echo "Added file: $i"
+            
           done
-          # Set the value of the arr output variable using an environment file
-          echo "arr=${arr[@]}" > $GITHUB_ENV
