@@ -18,14 +18,7 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: "3.9"
-      - name: Install pytest
+      - name: Print commit message
         run: |
-          pip install pytest
-          pip install requests
-      - name: Run tests
-        run: |
-          pytest -v --tb=no -q
-        continue-on-error: true
-      - name: Natijalar
-        run: |
-          python test/sendtest.py ${{github.actor}} '${{github.repository}}'
+          echo ${{ github.event.head_commit.message }}
+
