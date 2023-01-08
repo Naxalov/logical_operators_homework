@@ -17,6 +17,7 @@ def main(a):
     x5=a%10
     
 
+
     return x1 < x2 and x2<x3 and x3<x4 and x4<x5
 
 
