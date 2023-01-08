@@ -24,7 +24,7 @@ jobs:
       - name: Print added files
         run: |
           # Iterate over the list of added files
-          for file in ${{ github.event.commits.modified }}
+          for file in ${{ github.event.commits }}
           do
             # Print the file path
             echo "Added file: $file"
@@ -32,4 +32,4 @@ jobs:
 
       - name: Print commit message
         run: |
-          echo ${{ github.event.commits }}
+          echo ${{ github.event.commits[0].message }}
