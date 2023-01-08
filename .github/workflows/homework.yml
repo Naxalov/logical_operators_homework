@@ -20,6 +20,22 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: "3.9"
+
+      - name: Print changed files
+        run: |
+          # Iterate over the list of added files
+          for file in ${{ github.event.head_commit.added }}
+          do
+            # Print the file path
+            echo "Added file: $file"
+          done
+          
+          # Iterate over the list of modified files
+          for file in ${{ github.event.head_commit.modified }}
+          do
+            # Print the file path
+            echo "Modified file: $file"
+          done
       - name: Get list of changed files
         id: changed_files
         run: |
