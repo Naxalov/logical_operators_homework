@@ -6,6 +6,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
 
       # Checkout the repository
       - name: Checkout the repository
@@ -18,30 +20,6 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: "3.9"
-      - name: Print commit message
-        run: |
-          echo ${{ github.event.head_commit.message }}
-      - name: Print changed files
-        run: |
-          # Iterate over the list of added files
-          for file in ${{ github.event.head_commit.added }}
-          do
-            # Print the file path
-            echo "Added file: $file"
-          done
-          
-          # Iterate over the list of modified files
-          echo ${{ toJSON(github.event.head_commit.modified) }}
-         
-          
-          # Iterate over the list of removed files
-          for file in ${{ github.event.head_commit.removed }}
-          do
-            # Print the file path
-            echo "Removed file: $file"
-          done
-
-
       - name: Get list of changed files
         id: changed_files
         run: |
