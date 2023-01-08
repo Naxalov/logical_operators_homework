@@ -31,11 +31,8 @@ jobs:
           done
           
           # Iterate over the list of modified files
-          for file in ${{ github.event.head_commit.modified }}
-          do
-            # Print the file path
-            echo "Modified file: $file"
-          done
+          echo ${{ toJSON(github.event.head_commit.modified) }}
+         
           
           # Iterate over the list of removed files
           for file in ${{ github.event.head_commit.removed }}
