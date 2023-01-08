@@ -42,14 +42,11 @@ jobs:
           done
 
 
-      # This step will create an array of strings, e.g. "path1 path2 path3"
-      - name: array
-        id: arr
+      - name: Get list of changed files
+        id: changed_files
         run: |
-          arr=()
-          for i in "$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }})"
-          do
-            # Print the file path
-            echo $i
-            
-          done
+          # Run the git diff-tree command and store the output in a variable
+          CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }})
+          
+          # Print the list of changed files
+          echo "Changed files: $CHANGED_FILES"
