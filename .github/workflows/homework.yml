@@ -50,6 +50,6 @@ jobs:
           for i in "$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }})"
           do
             # Print the file path
-            echo "Added file: $i"
+            echo $i
             
           done
