@@ -32,4 +32,4 @@ jobs:
 
       - name: Print commit message
         run: |
-          echo ${{ github.event.commits[0].message }}
+          echo ${{toJSON(github.event.commits) }}
