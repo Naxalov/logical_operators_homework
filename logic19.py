@@ -21,5 +21,5 @@ def main(x):
 
     return x1==x3 or (x1==x2 and n<99)
 
-print(main(100))
+print(main(10))
 
