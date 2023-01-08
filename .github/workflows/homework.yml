@@ -42,7 +42,7 @@ jobs:
           done
 
 
-      # This step will create "an array" of strings, e.g. "path1 path2 path3"
+      # This step will create an array of strings, e.g. "path1 path2 path3"
       - name: array
         id: arr
         run: |
@@ -56,4 +56,5 @@ jobs:
               arr+=("path2")
             fi
           done
-          echo ::set-output name=arr::${arr[@]}
+          # Set the value of the arr output variable using an environment file
+          echo "arr=${arr[@]}" > $GITHUB_ENV
