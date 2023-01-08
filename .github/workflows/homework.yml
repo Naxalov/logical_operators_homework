@@ -30,6 +30,25 @@ jobs:
             echo toJson($file)
           done
 
-      - name: Print commit message
+      - name: Print changed files
         run: |
-          echo ${{toJSON(github.event.commits[0].modified) }}
+          # Iterate over the list of added files
+          for file in ${{ github.event.head_commit.added }}
+          do
+            # Print the file path
+            echo "Added file: $file"
+          done
+          
+          # Iterate over the list of modified files
+          for file in ${{ github.event.head_commit.modified }}
+          do
+            # Print the file path
+            echo "Modified file: $file"
+          done
+          
+          # Iterate over the list of removed files
+          for file in ${{ github.event.head_commit.removed }}
+          do
+            # Print the file path
+            echo "Removed file: $file"
+          done
