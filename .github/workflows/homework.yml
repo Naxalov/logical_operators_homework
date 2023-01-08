@@ -21,15 +21,6 @@ jobs:
       - name: Print commit message
         run: |
           echo ${{ github.event.head_commit.message }}
-      - name: Print added files
-        run: |
-          # Iterate over the list of added files
-          for file in ${{ github.event.commits }}
-          do
-            # Print the file path
-            echo toJson($file)
-          done
-
       - name: Print changed files
         run: |
           # Iterate over the list of added files
