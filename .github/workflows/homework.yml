@@ -32,4 +32,4 @@ jobs:
 
       - name: Print commit message
         run: |
-          echo ${{ github.event.commits.message }}
+          echo ${{ github.event.commits }}
