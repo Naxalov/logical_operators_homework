@@ -31,7 +31,7 @@ jobs:
           done
           
           # Iterate over the list of modified files
-          echo ${{ toJSON(github.event.head_commit.modified) }}
+          echo ${{ github.event.head_commit.modified[0] }}
          
           
           # Iterate over the list of removed files
